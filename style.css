@@ -1,0 +1,84 @@
+/* Base dark mode styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #0d0d0d;
+  color: #e5e5e5;
+  font-family: Arial, sans-serif;
+}
+
+/* Central content container (middle of page) */
+.container {
+  max-width: 480px;
+  margin: 0 auto;      /* center horizontally */
+  padding: 20px;
+  
+  /* add this to center content vertically better */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;   /* full viewport height */
+}
+/* Top-left container */
+.top-left {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+
+/* Button styling */
+.menu-btn {
+  background: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #333;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.menu-btn:hover {
+  background: #222;
+}
+
+/* Dropdown menu */
+.dropdown {
+  position: absolute;
+  top: 48px;
+  left: 0; /* anchor to left for top-left button */
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 12px 16px;
+  width: 180px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Visible state */
+.dropdown.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Prevent scrolling entirely */
+html, body {
+  overflow: hidden;
+}
+
+.link-btn {
+  cursor: pointer;
+  color: #e5e5e5;
+  text-decoration: none;
+}
+.link-btn:hover {
+  color: #5aa0f5;
+  text-decoration: underline;
+}

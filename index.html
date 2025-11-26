@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2902</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="top-left">
+    <button id="menuButton" class="menu-btn">info
+    </button>
+    <div id="dropdownMenu" class="dropdown">
+      <p>so uhh this is a website that im working on. ima steal html ports of games from like gn-math and noah's and put em on here!</p>
+    </div>
+  </div>
+
+  <main class="container">
+     Links:
+     <div class="link-btn" onclick="openBlankCloak('https://29021.github.io/buckshot/')">
+      Buckshot
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+  </main>
+
+  <script>
+    const menuBtn = document.getElementById("menuButton");
+    const dropdown = document.getElementById("dropdownMenu");
+
+    menuBtn.addEventListener("click", () => {
+      dropdown.classList.toggle("show");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".top-left")) {
+        dropdown.classList.remove("show");
+      }
+    });
+  </script>
+
+  <script>
+function openBlankCloak(url) {
+    const win = window.open('about:blank', '_blank');
+    win.document.title = "New Tab";
+    win.document.body.innerHTML = `<iframe src="${url}" style="width:100%;height:100%;border:none;"></iframe>`;
+}
+</script>
+
+</body>
+</html>
