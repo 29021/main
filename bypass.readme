@@ -1,0 +1,36 @@
+disable extension by ID
+
+(<a href="chrome://serviceworker-internals/">sysworker internals</a>)
+
+contents:
+chrome.mangement
+
+{
+  "manifest_version": 3,
+  "name": "My Extension Manager",
+  "version": "1.0",
+  "permissions": [
+    "management" 
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
+
+
+async function disableExtension(targetId) {
+  try {
+    // Check if the API exists first
+    if (!chrome.management) {
+      throw new Error("Management API not found. Check manifest permissions.");
+    }
+    
+    await chrome.management.setEnabled(targetId, false);
+    console.log(`Extension ${targetId} disabled successfully.`);
+  } catch (error) {
+    console.error("Failed to disable extension:", error.message);
+  }
+}
+
+// Usage
+disableExtension("ifinpabiejbjobcphhaomiifjibpkjlf");
